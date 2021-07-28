@@ -1,5 +1,5 @@
 import React from 'react';
-import Song from '../Song/song';
+import Song from '../Song/Song';
 
 function SongViewer(props){
     return(
