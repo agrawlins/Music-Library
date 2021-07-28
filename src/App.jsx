@@ -1,21 +1,35 @@
 import React, { Component } from 'react';
-import TitleBar from './TitleBar/titleBar';
-import SongViewer from './SongViewer/SongViewer';
-import SongCreator from './SongCreator/SongCreator';
-import Footer from './Footer/footer';
-import data from './data'
+import TitleBar from './Components/TitleBar/titleBar';
+import SongViewer from './Components/SongViewer/songViewer';
+import SongCreator from './Components/SongCreator/songCreator'
+import Footer from './Components/Footer/footer';
+// import data from './Components/data';
+import Song from './Components/Song/song'
+import axios from 'axios';
 
 class App extends Component {
     constructor(props){
         super(props);
-        this.songs = [
-            data
-        ];
-    this.state = {
-        songNumber: 0
+        this.state = {
+        // songNumber: 0,
+        songs: [Song(props)]
         }
     }
+    componentDidMount(){
+        this.makeGetRequest();
+    }
 
+    async makeGetRequest(){
+        try {
+            let response = await axios.get("http://www.devcodecampmusiclibrary.com/api/music");
+            console.log(response.data);
+            this.setState({
+                songs: response.data
+            });
+        } catch (er) {
+            console.log("Error in API call")
+        }
+    }
     addNewSong(song){
         this.songs.push(song);
         this.setState({
@@ -46,6 +60,9 @@ class App extends Component {
     render() {
         return(
             <div className="container-fluid">
+                <h1>async await axios request</h1>
+                <button onClick={this.makeGetRequest}>Remake Call</button>
+                <h2>{this.state.songs[10].title}</h2>
                 <TitleBar />
                 <SongViewer song={this.songs[this.state.songNumber]} nextSong={() => this.goToNextSong()} previousSong={() => this.goToPreviousSong()}/>
                 <SongCreator addNewSong={this.addNewSong.bind(this)}/>
