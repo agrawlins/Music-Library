@@ -6,7 +6,7 @@ function TitleBar(props) {
         <div className="row row-spacer">
             <div className="col-md-12" style={{padding:0}}>
                 <div className="titlebar-nav">
-                    <h1>Music Library</h1>
+                    <h1>Music Library</h1> <button class="right" onClick="">Pointless Button</button>
                 </div>
             </div>
         </div>

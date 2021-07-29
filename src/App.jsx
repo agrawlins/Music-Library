@@ -64,7 +64,7 @@ class App extends Component {
                 <TitleBar />         
                 <div class="center">
                     {this.state.songs.map((Song, index) => (
-                    <h2>{Song.id}: "{Song.title}", {Song.artist}, <i>{Song.album}</i>, {Song.releaseDate}</h2>
+                    <h2>{Song.id}: "{Song.title}", {Song.artist}, <i>{Song.album}</i>, {Song.releaseDate}, {Song.genre}</h2>
                     ))}
                 </div>
                 

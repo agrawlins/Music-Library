@@ -9,7 +9,8 @@ function Song(props){
                 <h4 className="title">{props.songs.title}</h4>
                 <h4 className="artist">{props.songs.artist}</h4>
                 <h4 className="album">{props.songs.album}</h4>
-                <h4 className="releaseDate">{props.songs.album}</h4>
+                <h4 className="releaseDate">{props.songs.releaseDate}</h4>
+                <h4 className="genre">{props.songs.genre}</h4>
             </div>
         </div>
     );
