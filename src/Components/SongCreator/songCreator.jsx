@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './songCreator.css'
 
-class BookCreator extends Component{
+class SongCreator extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -26,7 +26,7 @@ class BookCreator extends Component{
             artist: this.state.artist
 
         }
-        this.props.addNewBook(song);
+        this.props.addNewSong(song);
         this.setState({
             title: '',
             artist: '',
@@ -72,4 +72,4 @@ class BookCreator extends Component{
     }
 }
 
-export default BookCreator;
+export default SongCreator;
