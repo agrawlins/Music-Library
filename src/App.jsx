@@ -62,7 +62,7 @@ class App extends Component {
         return(
             <div className="container-fluid">
                 <TitleBar />         
-                <div class="center">
+                <div class="center, background">
                     {this.state.songs.map((Song, index) => (
                     <h2>{Song.id}: "{Song.title}", {Song.artist}, <i>{Song.album}</i>, {Song.releaseDate}, {Song.genre}</h2>
                     ))}
