@@ -6,9 +6,10 @@ function Song(props){
         <div className="song">
             <div className="cover">
                 <h4 className="id">{props.songs.id}</h4>
-                <h1 className="title">{props.songs.title}</h1>
-                <h2 className="artist">{props.songs.artist}</h2>
+                <h4 className="title">{props.songs.title}</h4>
+                <h4 className="artist">{props.songs.artist}</h4>
                 <h4 className="album">{props.songs.album}</h4>
+                <h4 className="releaseDate">{props.songs.album}</h4>
             </div>
         </div>
     );

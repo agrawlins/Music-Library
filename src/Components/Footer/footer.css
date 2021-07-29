@@ -1,8 +1,8 @@
 .footer{
-    background-color: lightblue;
+    background-color: rgb(0, 0, 0);
     width: 100%;
-    box-shadow: 0 50vh 0 50vh lightblue;
-    text-align: center;
+    text-align:right;
     padding-top: 1%;
-    margin-top: 2cm;
+    padding-bottom: 1%;
+    color: white;
 }

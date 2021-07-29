@@ -21,14 +21,16 @@ class BookCreator extends Component{
 
     handleSubmit(event){
         event.preventDefault();
-        const book={
+        const song={
             title: this.state.title,
             artist: this.state.artist
+
         }
-        this.props.addNewBook(book);
+        this.props.addNewBook(song);
         this.setState({
             title: '',
-            artist: ''
+            artist: '',
+
         });
     }
     render(){
@@ -61,7 +63,7 @@ class BookCreator extends Component{
                             <input type="date" name="releaseDate" value={this.state.releaseDate} onChange={this.handleChange} />
                         </div>
                         <div className="col-md-4">
-                            <input type="submit" value="Add" />
+                            <input type="submit" value="Submit" />
                         </div>
                     </div>
                 </form>

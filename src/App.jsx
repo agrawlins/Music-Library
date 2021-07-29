@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-// import TitleBar from './Components/TitleBar/titleBar';
+import TitleBar from './Components/TitleBar/titleBar';
 // import SongViewer from './Components/SongViewer/songViewer';
-// import SongCreator from './Components/SongCreator/songCreator'
-// import Footer from './Components/Footer/footer';
+import SongCreator from './Components/SongCreator/songCreator'
+import Footer from './Components/Footer/footer';
 // import data from './Components/data';
 import Song from './Components/Song/song'
 import axios from 'axios';
@@ -61,17 +61,16 @@ class App extends Component {
     render() {
         return(
             <div className="container-fluid">
-                <h1 class="center">async await axios request</h1>
-                <button onClick={this.makeGetRequest}>Remake Call</button>
-                <h2>{this.state.songs.title}</h2>
-                <Song songs={this.state.songs} />
-                {this.state.songs.map((Song, index) => (
-                <h2>{Song.id}: "{Song.title}", {Song.artist}, <i>{Song.album}</i></h2>
-                ))}
-                {/* <TitleBar />
-                <SongViewer song={this.songs[this.state.songNumber]} nextSong={() => this.goToNextSong()} previousSong={() => this.goToPreviousSong()}/>
+                <TitleBar />         
+                <div class="center">
+                    {this.state.songs.map((Song, index) => (
+                    <h2>{Song.id}: "{Song.title}", {Song.artist}, <i>{Song.album}</i>, {Song.releaseDate}</h2>
+                    ))}
+                </div>
+                
+                {/* <SongViewer song={this.songs[this.state.songNumber]} nextSong={() => this.goToNextSong()} previousSong={() => this.goToPreviousSong()}/> */}
                 <SongCreator addNewSong={this.addNewSong.bind(this)}/>
-                <Footer /> */}
+                <Footer />
             </div>
         );
     }

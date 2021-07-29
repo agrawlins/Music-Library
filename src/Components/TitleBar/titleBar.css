@@ -1,9 +1,10 @@
 .titlebar-nav{
-    background-color:rgb(47, 74, 112);
+    background-color:rgb(0, 0, 0);
     width: 100%;
 }
 
 h1 {
     padding-bottom: 0.2cm;
     padding-left: 1cm;
+    color:white
 }
