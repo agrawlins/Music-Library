@@ -1,5 +1,6 @@
 import React from 'react';
 import Song from '../Song/song';
+import './songViewer.css';
 
 function SongViewer(props){
     return(

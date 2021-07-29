@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TitleBar from './Components/TitleBar/titleBar';
+import SongLister from './Components/SongLister/songLister';
 // import SongViewer from './Components/SongViewer/songViewer';
 import SongCreator from './Components/SongCreator/songCreator'
 import Footer from './Components/Footer/footer';
@@ -11,7 +12,7 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-        // songNumber: 0,
+        songNumber: 0,
         songs: []
         }
     }
@@ -62,13 +63,7 @@ class App extends Component {
         return(
             <div className="container-fluid">
                 <TitleBar />         
-                <div class="center, background">
-                    {this.state.songs.map((Song, index) => (
-                    <h2>{Song.id}: "{Song.title}", {Song.artist}, <i>{Song.album}</i>, {Song.releaseDate}, {Song.genre}</h2>
-                    ))}
-                </div>
-                
-                {/* <SongViewer song={this.songs[this.state.songNumber]} nextSong={() => this.goToNextSong()} previousSong={() => this.goToPreviousSong()}/> */}
+                {/* <SongViewer song={this.songs[this.state.songNumber]} nextSong={() => this.goToNextSong} previousSong={() => this.goToPreviousSong}/> */}
                 <SongCreator addNewSong={this.addNewSong.bind(this)}/>
                 <Footer />
             </div>
