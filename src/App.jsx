@@ -3,6 +3,7 @@ import TitleBar from './Components/TitleBar/titleBar';
 import SongLister from './Components/SongLister/songLister';
 // import SongViewer from './Components/SongViewer/songViewer';
 import SongCreator from './Components/SongCreator/songCreator'
+// import NameForm from './Components/SearchFeature/searchFeature';
 import Footer from './Components/Footer/footer';
 // import data from './Components/data';
 import Song from './Components/Song/song'
@@ -63,7 +64,7 @@ class App extends Component {
         return(
             <div className="container-fluid">
                 <TitleBar />  
-
+                {/* <NameForm /> */}
                 <div class="center, background">
             {this.state.songs.map((Song, index) => (
             <p>{Song.id}: "{Song.title}", {Song.artist}, <i>{Song.album}</i>, {Song.releaseDate}, {Song.genre}</p>
