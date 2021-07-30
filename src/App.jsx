@@ -63,10 +63,10 @@ class App extends Component {
         return(
             <div className="container-fluid">
                 <TitleBar />  
-                
+
                 <div class="center, background">
             {this.state.songs.map((Song, index) => (
-            <h2>{Song.id}: "{Song.title}", {Song.artist}, <i>{Song.album}</i>, {Song.releaseDate}, {Song.genre}</h2>
+            <p>{Song.id}: "{Song.title}", {Song.artist}, <i>{Song.album}</i>, {Song.releaseDate}, {Song.genre}</p>
             ))}
         </div>       
                 {/* <SongViewer song={this.songs[this.state.songNumber]} nextSong={() => this.goToNextSong} previousSong={() => this.goToPreviousSong}/> */}
