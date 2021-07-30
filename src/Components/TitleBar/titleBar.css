@@ -13,3 +13,7 @@ h1 {
     float: right;
     padding-right: 2%;
 }
+
+.searchbar{
+    size: 80%;
+}

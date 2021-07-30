@@ -62,7 +62,13 @@ class App extends Component {
     render() {
         return(
             <div className="container-fluid">
-                <TitleBar />         
+                <TitleBar />  
+                
+                <div class="center, background">
+            {this.state.songs.map((Song, index) => (
+            <h2>{Song.id}: "{Song.title}", {Song.artist}, <i>{Song.album}</i>, {Song.releaseDate}, {Song.genre}</h2>
+            ))}
+        </div>       
                 {/* <SongViewer song={this.songs[this.state.songNumber]} nextSong={() => this.goToNextSong} previousSong={() => this.goToPreviousSong}/> */}
                 <SongCreator addNewSong={this.addNewSong.bind(this)}/>
                 <Footer />
