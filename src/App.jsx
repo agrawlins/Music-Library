@@ -60,6 +60,8 @@ class App extends Component {
             songNumber: tempSongNumber
         });
     }
+
+
     render() {
         return(
             <div className="container-fluid">
@@ -78,4 +80,38 @@ class App extends Component {
     }
 }
 
+function BoilingVerdict(props){
+    if(props.search >="Drive My Car") {
+        return <p>You found the Beatles!</p>;
+    }
+    return <p>The water would not boil...</p>;
+}   
+
+class Calculator extends React.Component{
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.state={
+            userInput: ''
+        };
+    }
+
+    handleChange(e){
+        this.setState({
+            userInput: e.target.value
+        });
+        console.log(this.state.userInput)
+    }
+
+    render(){
+        const userInput = this.state.userInput;
+        return(
+            <fieldset>
+                <legend>Search the Song Database!</legend>
+                <input value={userInput} onChange={this.handleChange} />
+                <BoilingVerdict search={(userInput)} />
+            </fieldset>
+        );
+    }
+}
 export default App;
