@@ -12,9 +12,11 @@ import axios from 'axios';
 class App extends Component {
     constructor(props){
         super(props);
+        this.handleChange = this.handleChange.bind(this)
         this.state = {
         songNumber: 0,
-        songs: []
+        songs: [],
+        userInput: ""
         }
     }
 
@@ -61,16 +63,46 @@ class App extends Component {
         });
     }
 
+    handleChange(e){
+        this.setState({
+            userInput: e.target.value
+        });
+        console.log(e.target.value)          
+    }
+
+    // filterSearch(){
+    //     this.state.songs
+    //     .filter((song) => song.artist === 'The Beatles')
+    //     .map((song) => <li key={song.id}>{song.title}</li>);
+    // }
+
 
     render() {
+        // const searchFilter = this.state.songs;
+        const userInput = this.state.userInput;
         return(
             <div className="container-fluid">
-                <TitleBar />  
+                <TitleBar />
+                 
+                <fieldset>
+                    <legend>Search the Song Database!</legend>
+                    <input value={userInput} onChange={this.handleChange} />
+                    {/* <BoilingVerdict search={(userInput)} /> */}
+                 </fieldset>
+                <ul>
+                    {
+                    (this.state.songs.filter((song) => song.title === this.state.userInput).map((song) => <li key={song.id}>{song.title}</li>)) ||                   
+                    (this.state.songs.filter((song) => song.artist === this.state.userInput).map((song) => <li key={song.id}>{song.title}</li>)) ||
+                    (this.state.songs.filter((song) => song.genre === this.state.userInput).map((song) => <li key={song.id}>{song.title}</li>)) ||
+                    (this.state.songs.filter((song) => song.album === this.state.userInput).map((song) => <li key={song.id}>{song.title}</li>)) ||
+                    (this.state.songs.filter((song) => song.releaseDate === this.state.userInput).map((song) => <li key={song.id}>{song.title}</li>))
+                    } 
+                </ul>
                 {/* <NameForm /> */}
                 <div class="center, background">
             {this.state.songs.map((Song, index) => (
-            <p>{Song.id}: "{Song.title}", {Song.artist}, <i>{Song.album}</i>, {Song.releaseDate}, {Song.genre}</p>
-            ))}
+                <p>{Song.id}: "{Song.title}", {Song.artist}, <i>{Song.album}</i>, {Song.releaseDate}, {Song.genre}</p>
+                ))}
         </div>       
                 {/* <SongViewer song={this.songs[this.state.songNumber]} nextSong={() => this.goToNextSong} previousSong={() => this.goToPreviousSong}/> */}
                 <SongCreator addNewSong={this.addNewSong.bind(this)}/>
@@ -80,38 +112,38 @@ class App extends Component {
     }
 }
 
-function BoilingVerdict(props){
-    if(props.search >="Drive My Car") {
-        return <p>You found the Beatles!</p>;
-    }
-    return <p>The water would not boil...</p>;
-}   
+// function BoilingVerdict(props){
+//     if(props.search >="Drive My Car") {
+//         return <p>You found the Beatles!</p>;
+//     }
+//     return <p>The water would not boil...</p>;
+// }   
 
-class Calculator extends React.Component{
-    constructor(props) {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.state={
-            userInput: ''
-        };
-    }
+// class Calculator extends React.Component{
+//     constructor(props) {
+//         super(props);
+//         this.handleChange = this.handleChange.bind(this);
+//         this.state={
+//             userInput: ''
+//         };
+//     }
 
-    handleChange(e){
-        this.setState({
-            userInput: e.target.value
-        });
-        console.log(this.state.userInput)
-    }
+//     handleChange(e){
+//         this.setState({
+//             userInput: e.target.value
+//         });
+//         console.log(this.state.userInput)
+//     }
 
-    render(){
-        const userInput = this.state.userInput;
-        return(
-            <fieldset>
-                <legend>Search the Song Database!</legend>
-                <input value={userInput} onChange={this.handleChange} />
-                <BoilingVerdict search={(userInput)} />
-            </fieldset>
-        );
-    }
-}
+//     render(){
+//         const userInput = this.state.userInput;
+//         return(
+//             <fieldset>
+//                 <legend>Search the Song Database!</legend>
+//                 <input value={userInput} onChange={this.handleChange} />
+//                 <BoilingVerdict search={(userInput)} />
+//             </fieldset>
+//         );
+//     }
+// }
 export default App;
