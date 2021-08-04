@@ -10,15 +10,9 @@ function TitleBar(props) {
                     <div>
                         
                     </div>
-                    <h1>
-                        Music Library
-                        <div class="search-container, searchbar, right">
-                            <form action="/action_page.php">
-                                <input type="text" placeholder="Search.." name="search" />
-                            </form>
-                        </div>
-                    </h1> 
-                    {/* <searchbar class="right">Searchbar</searchbar> */}
+                    <p2>
+                       <strong>A&D dEVCODECAMP MUSIC LIBRARY!!!</strong>
+                    </p2> 
                 </div>
             </div>
         </div>

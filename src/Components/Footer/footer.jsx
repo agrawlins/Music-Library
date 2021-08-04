@@ -4,7 +4,7 @@ import './footer.css';
 function Footer(){
     return (
         <footer className="footer">
-            <h4>Copyright © 2021 devCodeCamp A & D</h4>
+           <h7>Copyright © 2021 devCodeCamp A&D</h7>
         </footer>
     )
 }

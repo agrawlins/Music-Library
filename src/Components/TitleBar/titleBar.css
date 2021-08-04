@@ -3,17 +3,10 @@
     width: 100%;
 }
 
-h1 {
+p2 {
+    font-family:cursive;
+    font-size: 25px;
     padding-bottom: 0.2cm;
-    padding-left: 1cm;
-    color:white
-}
-
-.right{
-    float: right;
-    padding-right: 2%;
-}
-
-.searchbar{
-    size: 80%;
+    padding-left: 35%;
+    color:whitesmoke
 }
