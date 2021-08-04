@@ -3,6 +3,7 @@ import TitleBar from './Components/TitleBar/titleBar';
 import SongLister from './Components/SongLister/songLister';
 // import SongViewer from './Components/SongViewer/songViewer';
 import SongCreator from './Components/SongCreator/songCreator'
+// import NameForm from './Components/SearchFeature/searchFeature';
 import Footer from './Components/Footer/footer';
 // import data from './Components/data';
 import Song from './Components/Song/song'
@@ -59,11 +60,13 @@ class App extends Component {
             songNumber: tempSongNumber
         });
     }
+
+
     render() {
         return(
             <div className="container-fluid">
                 <TitleBar />  
-
+                {/* <NameForm /> */}
                 <div class="center, background">
             {this.state.songs.map((Song, index) => (
             <p>{Song.id}: "{Song.title}", {Song.artist}, <i>{Song.album}</i>, {Song.releaseDate}, {Song.genre}</p>
@@ -77,4 +80,38 @@ class App extends Component {
     }
 }
 
+function BoilingVerdict(props){
+    if(props.search >="Drive My Car") {
+        return <p>You found the Beatles!</p>;
+    }
+    return <p>The water would not boil...</p>;
+}   
+
+class Calculator extends React.Component{
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.state={
+            userInput: ''
+        };
+    }
+
+    handleChange(e){
+        this.setState({
+            userInput: e.target.value
+        });
+        console.log(this.state.userInput)
+    }
+
+    render(){
+        const userInput = this.state.userInput;
+        return(
+            <fieldset>
+                <legend>Search the Song Database!</legend>
+                <input value={userInput} onChange={this.handleChange} />
+                <BoilingVerdict search={(userInput)} />
+            </fieldset>
+        );
+    }
+}
 export default App;
