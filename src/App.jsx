@@ -9,6 +9,8 @@ import Footer from './Components/Footer/footer';
 import Song from './Components/Song/song'
 import axios from 'axios';
 
+import './App.css';
+
 class App extends Component {
     constructor(props){
         super(props);
@@ -75,41 +77,82 @@ class App extends Component {
         return(
             <div className="container-fluid">
                 <TitleBar/>
-                <fieldset>
-                    <legend>Search the Song Database!</legend>
-                    <input value={userInput} onChange={this.handleChange} />
-                 </fieldset>
-                <ul>
-                    {
-                    (this.state.songs.filter((song) => song.title === this.state.userInput).map((song) => <li key={song.id}>"{song.title}", {song.artist}, <i>{song.album}</i>, {song.releaseDate}, {song.genre}</li>))               
-                    } 
-                </ul>
-                <ul>
-                    {
-                (this.state.songs.filter((song) => song.album === this.state.userInput).map((song) => <li key={song.id}>"{song.title}", {song.artist}, <i>{song.album}</i>, {song.releaseDate}, {song.genre}</li>))
-                    }
-                </ul>
-                <ul>
-                    {
-                    (this.state.songs.filter((song) => song.artist === this.state.userInput).map((song) => <li key={song.id}>"{song.title}", {song.artist}, <i>{song.album}</i>, {song.releaseDate}, {song.genre}</li>))
-                    }
-                </ul>
-                <ul>
-                    {
-                    (this.state.songs.filter((song) => song.genre === this.state.userInput).map((song) => <li key={song.id}>"{song.title}", {song.artist}, <i>{song.album}</i>, {song.releaseDate}, {song.genre}</li>))
-                    }
-                </ul>
-                <ul>
-                    {
-                    (this.state.songs.filter((song) => song.releaseDate === this.state.userInput).map((song) => <li key={song.id}>"{song.title}", {song.artist}, <i>{song.album}</i>, {song.releaseDate}, {song.genre}</li>))    
-                    }
-                </ul>
-                <p1>
-                    {/* <div>
-                        {this.state.songs.map((Song, index) => (
+                <table id="customers">
+                    <tr>
+                        {/* {(this.state.songs.filter((song) => song.title === this.state.userInput).map((song) =>  
+                        {(this.state.songs.filter((song) => song.artist === this.state.userInput).map((song) => 
+                        {(this.state.songs.filter((song) => song.album === this.state.userInput).map((song) => 
+                        {(this.state.songs.filter((song) => song.genre === this.state.userInput).map((song) => 
+                        {(this.state.songs.filter((song) => song.releaseDate === this.state.userInput).map((song) =>  */}
+                    </tr>
+                </table>
+                {/* <p1>
+                    <div className="grid-container">
+                    {this.state.songs.map((Song, index) => (
                         <p>{Song.id}: "{Song.title}", {Song.artist}, <i>{Song.album}</i>, {Song.releaseDate}, {Song.genre}</p>))}
-                    </div> */}
-                </p1>
+                        </div>
+                    </p1> */}
+<table id="customers">
+  
+  <tr>
+    <th>Song#</th>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>Album</th>
+    <th>Release Date</th>
+    <th>Genre</th>
+  </tr>
+    {(this.state.songs.filter((song) => song.title === this.state.userInput).map((song) =>
+        <tr key={song.id}>
+            <td>{song.id}</td>
+            <td>"{song.title}"</td>
+            <td>{song.artist}</td>
+            <td><i>{song.album}</i></td>
+            <td>{song.releaseDate}</td> 
+            <td>{song.genre}</td>
+        </tr>))}
+    {(this.state.songs.filter((song) => song.artist === this.state.userInput).map((song) =>
+        <tr key={song.id}>
+            <td>{song.id}</td>
+            <td>"{song.title}"</td>
+            <td>{song.artist}</td>
+            <td><i>{song.album}</i></td>
+            <td>{song.releaseDate}</td> 
+            <td>{song.genre}</td>
+        </tr>))}
+    {(this.state.songs.filter((song) => song.album === this.state.userInput).map((song) =>
+        <tr key={song.id}>
+            <td>{song.id}</td>
+            <td>"{song.title}"</td>
+            <td>{song.artist}</td>
+            <td><i>{song.album}</i></td>
+            <td>{song.releaseDate}</td> 
+            <td>{song.genre}</td>
+        </tr>))}
+    {(this.state.songs.filter((song) => song.genre === this.state.userInput).map((song) => 
+        <tr key={song.id}>
+            <td>{song.id}</td>
+            <td>"{song.title}"</td>
+            <td>{song.artist}</td>
+            <td><i>{song.album}</i></td>
+            <td>{song.releaseDate}</td> 
+            <td>{song.genre}</td>
+        </tr>))}
+    {(this.state.songs.filter((song) => song.releaseDate === this.state.userInput).map((song) => 
+        <tr key={song.id}>
+            <td>{song.id}</td>
+            <td>"{song.title}"</td>
+            <td>{song.artist}</td>
+            <td><i>{song.album}</i></td>
+            <td>{song.releaseDate}</td> 
+            <td>{song.genre}</td>
+        </tr>))}
+  
+</table>
+                    <fieldset className="fieldset">
+                        <legend>Search the Song Database!</legend>
+                        <input value={userInput} onChange={this.handleChange} />
+                     </fieldset>
                     <SongCreator addNewSong={this.addNewSong.bind(this)}/>
                     <Footer />
             </div>
