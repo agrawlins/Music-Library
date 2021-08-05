@@ -6,10 +6,7 @@ class SongCreator extends Component{
         super(props);
         this.state={
             title: '',
-            artist: '',
-            album: '',
-            releaseDate: '',
-            genre: ''
+            artist: ''
         }
         
     this.handleChange = this.handleChange.bind(this);
@@ -26,10 +23,7 @@ class SongCreator extends Component{
         event.preventDefault();
         const song={
             title: this.state.title,
-            artist: this.state.artist,
-            album: this.state.album,
-            releaseDate: this.state.releaseDate,
-            genre: this.state.genre
+            artist: this.state.artist
 
         }
         this.props.addNewSong(song);
